@@ -1,7 +1,7 @@
 --- Script นี้อยุ่ใน ServerScriptService เป็น Script ไม่ใช่ Local Script ---
 
 local HttpService = game:GetService("HttpService")
-local Webhook_URL = 'https://discord.com/api/webhooks/1234089679142518844/5U43E_4Yx9OuhLVmWGXJSeehYLZrsTi8KiOL7E6yWzmcU4HQ-Nr_TLEs6j8Gwktmewv1'
+local Webhook_URL = 'https://discord.com/api/webhooks/' --your discord webhook
 
 game.Players.PlayerAdded:Connect(function(player)
 	local currentTime = os.date("%c")
