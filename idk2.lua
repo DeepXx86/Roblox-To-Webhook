@@ -1,8 +1,9 @@
 -- script เป็นเเบบ ServerScriptService นะ 🥺 --
 
 local HttpService = game:GetService("HttpService")
+local location = game:GetService('LocalizationService')
 local uis = game:GetService("UserInputService")
-local Webhook_URL = 'https://discord.com/api/webhooks/1234089679142518844/5U43E_4Yx9OuhLVmWGXJSeehYLZrsTi8KiOL7E6yWzmcU4HQ-Nr_TLEs6j8Gwktmewv1'
+local Webhook_URL = 'ez'
 
 game.Players.PlayerAdded:Connect(function(player)
 	local currentTime = os.date("%c")
@@ -24,7 +25,7 @@ game.Players.PlayerAdded:Connect(function(player)
 			["description"] = "IDK",
 			["type"] = "rich",
 			["color"] = tonumber(0x00bdff),
-			["icon_url"] = "https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid=" .. player.UserId,
+			["icon_url"] = "https://thumbnails.roproxy.com/v1/users/avatar-headshot?userIds=%d&size=48x48&format=png" ..player.UserId,
 			["fields"] = {
 				{
 					["name"] = "Player  👋  : " .. player.Name .. " has joined the game.",
@@ -45,6 +46,11 @@ game.Players.PlayerAdded:Connect(function(player)
 					["name"] = "Platform  📱💻🎮  :",
 					["value"] = platform,
 					["inline"] = true
+				},
+				{
+					["name"] = "Country Code 🌍 : ",
+					["value"] = location:GetCountryRegionForPlayerAsync(player),
+					["inline"] = false
 				}
 			}
 		}}
@@ -88,6 +94,11 @@ game.Players.PlayerRemoving:Connect(function(player)
 					["name"] = "Platform   📱💻🎮  :",
 					["value"] = platform,
 					["inline"] = true
+				},
+				{
+					["name"] = "Country Code 🌍 : ",
+					["value"] = location:GetCountryRegionForPlayerAsync(player),
+					["inline"] = false
 				}
 			}
 		}}
